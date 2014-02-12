@@ -2450,12 +2450,14 @@ fieldset[disabled] .btn-danger.active {
   border-color: #d43f3a;
 }
 
+.nav li .btn-success:hover,
 .btn-success {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
 
+.nav li .btn-success:hover,
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active,
