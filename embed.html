@@ -9,7 +9,17 @@
 		<link rel="shortcut icon" href="img/favicon.ico">
 		<title>VoltIRC - Embeddable Chat Client</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-colorpalette.css" rel="stylesheet">
 		<link href="css/jumbotron-narrow.css" rel="stylesheet">
+		<style>
+		input#iframe {
+		  background-color: #BFBDBD;
+		  border:solid 1px #BFBDBD;
+ 		  height: 28px;
+		  padding-left: 2px;
+		  width: 100%;
+		};
+		</style>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -20,33 +30,53 @@
 		<div class="container">
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="index.html">Home</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Staff</a></li>
-							<li><a href="#">Servers</a></li>
+							<li><a href="coming.html">Staff</a></li>
+							<li><a href="coming.html">Servers</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Help</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a class="btn-success" href="#">Chat Now!</a></li>
+					<li><a href="coming.html">Help</a></li>
+					<li><a href="coming.html">Contact</a></li>
+					<li><a class="btn-success" href="chat.html">Chat Now!</a></li>
 				</ul>
 				<img class="logo" src="img/voltirc-logo.png" />
 <!-- 				<h3 class="text-muted">VoltIRC</h3>
  -->			</div>
 			<div class="row marketing">
-				<h1>How to Embed a Chat Client</h1>
-				<p>The following instructions will walk you through embedding a chat client in your website. Installing a chat client is a great idea for online communities who wish to enable their users to chat in real time.</p>
-				<p>To get started, visit our chat client with a desktop web browser: http://webchat.voltirc.com:9090/</p>
-				<p>Once you have opened the chat client, click the blue menu button in the top left corner.</p>
-				<p>Select "Add webchat to your site" to start the web chat wizard.</p>
-				<p>You will be prompted to enter a nickname to use. If you wish for users to select their own nickname, leave this field blank. If you would like your users to use a randomly generated nickname that is specific to your communitiy, use something like "MyCommunity.....". Users who do not fill out their own nickname will now join your chat room with a nickname prefixed with "MyCommunity" followed by five random numbers. Ex. MyCommunity52847</p>
-				<p>Next, select the channel you would like your users to join. Please note that all channel names must start with # such as #chat or #help. You can select multiple channels by separating the channel names with a comma. Ex. #mychat,#yourchat,#ourchat</p>
-				<p>Next you will be asked if you want to display a "Connect Dialog". If you want your users to have an opportunity to change their nickname before joining your chat room, select "Show the connect dialog." If you'd rather your users connect directly without giving them a chance to edit their nickname, select "Connect without displaying the dialog."</p>
-				<p>You will then be asked if you wish to customize the colors used in the web chat. This is a great feature that enables you to match the web chat widget to your website's color scheme. If you're not sure which colors to use, select the default option. Otherwise, select the colors you wish to use for the webchat. Remember, you can always change these colors later.</p>
-				<p>The web chat client will generate a code for you to embed. Copy and paste this code into your website. You're all set! Users who visit your website will now be able to use a chat client to connect with other users!</p>
-				<p>If at any time you require assistance with the chat client or getting it set up, please visit us in #help.</p>
+				<h2>WebIRC Client Generator</h2>
+				<table>
+					<tr><td>Default Username</td><td><input id="nick" value="VoltIRC...." /></td></tr>
+					<tr><td>Default Channels</td><td><input id="chans" value="#chat,#help" /></td></tr>
+					<tr><td>Background Color</td><td>
+						<div class="btn-group">
+						    <input id="bg_color" value="#022330" class="dropdown-toggle" data-toggle="dropdown">
+						    <ul class="dropdown-menu">
+							    <li><div id="bg_color-sel"></div></li>
+						    </ul>
+						</div>
+					</td></tr>
+					<tr><td>Foreground Color</td><td>
+                                                <div class="btn-group">
+                                                    <input id="fg_color" value="#DDDDDD" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <ul class="dropdown-menu">
+                                                            <li><div id="fg_color-sel"></div></li>
+                                                    </ul>
+                                                </div>
+					</td></tr>
+					<tr><td>Secondary Color</td><td>
+                                                <div class="btn-group">
+                                                    <input id="fg_sec_color" value="#999999" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <ul class="dropdown-menu">
+                                                            <li><div id="fg_sec_color-sel"></div></li>
+                                                    </ul>
+                                                </div>
+					</td></tr>
+				</table>
+				<button onclick="generate()">Generate</button><br />
+				<span id="output"></span>
 			</div>
 			<div class="footer">
 				<p>&copy; VoltIRC 2013-2014</p>
@@ -54,6 +84,7 @@
 		</div>
 		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-colorpalette.js"></script>
+		<script src="js/embed.js"></script>
 	</body>
 </html>
-
