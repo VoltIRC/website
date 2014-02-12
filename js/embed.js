@@ -14,7 +14,7 @@ function generate () {
          var base = "http://webchat.voltirc.com:9090/";
          var opts = {
              prompt: 1,
-             nick: $$('nick').value||"VoltIRC....",
+             nick: encodeURIComponent($$('nick').value||"VoltIRC...."),
              channels: encodeURIComponent(($$('chans').value||"chat,help").replace(/#/g,'')),
              bg_color: ($$('bg_color').value||"022330").replace(/#/g,''),
              fg_color: ($$('fg_color').value||"DDDDDD").replace(/#/g,''),
